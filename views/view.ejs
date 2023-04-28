@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Tracking</title>
+    <!-- <link rel="stylesheet" href="/project.css"> -->
+    <style>
+        /* table,tr{
+            border:1px solid;
+            width:100%;
+            font-size:18px;
+        } */
+        /* Style the table */
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: #FFF;
+}
+
+/* Add hover effect to table rows */
+tr:hover {
+  background-color: #f5f5f5;
+}
+        /* .outer{
+            display:flex;
+            justify-content: space-between;
+        }
+        .inner{
+            width:300px;
+            height:250px;
+            border:1px solid black;
+            border-radius:8px;
+            margin-left:200px;
+            background-color:blueviolet;
+            color:white;
+
+
+        }
+     #x{
+        margin-right:200px;
+     }
+     .particular{
+        height:50px;
+        font-size:20px;
+     }
+     .date{
+        height:50px;
+        font-size:20px;
+     } */
+/* Styles for the outer container */
+.outer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for the inner containers */
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Styles for the h1 headings */
+.inner h1 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+/* Styles for the particular container */
+.particular {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Styles for the form inputs */
+label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input[type="number"] {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Styles for the date container */
+.date {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Styles for the date input */
+#date {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Styles for the search icon */
+button[type="submit"]::before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Styles for the info icon */
+#x::before {
+  content: "\f05a";
+  font-family: FontAwesome;
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 5px;
+}
+    </style>
+ 
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <h1>Total Number Of visitors</h1>
+            <h1><%= number %></h1>
+        </div>
+        <div class="inner" id="x">
+            
+            <h1>Number of Visitors Inside the Campus</h1>
+            <h1><%= numb %></h1>
+        </div>
+    </div>
+    <div class="particular">
+        <form action="/particular" method="post">
+            <label>Enter the Id of vistitor</label>
+            <input type="number" name="gate_id" placeholder="enter the gate_id to know the details of a particular visitor">
+             <button type="submit">search</button>
+        </form>
+    </div>
+    <div class="date">
+        <form action="/search" method="post">
+            <label for="date">Choose a date:</label>
+            <input type="date" id="date" name="date">
+            <button type="submit">Search</button>
+          </form>
+          
+    </div>
+    <table id="result">
+        <tr>
+            <th>GATE_Id</th>
+            <th>Name</th>
+            <th>Phone_number</th>
+            <th>Category</th>
+            <th>Host_name</th>
+            <th>Host_phonenumber</th>
+            <th>Email</th>
+            <th>Purpose</th>
+            <th>Entering_Date</th>
+            <th>Entering_time</th>
+            <th>status</th>
+            <th>Leaving_date</th>
+            <th>Leaving_time</th>
+        </tr>
+        
+            
+            <% for(var i=0;i<visitorsdata.length;i++) { %>
+                <tr>
+                    <td><%=visitorsdata[i].gate_id %></td>
+                    <td><%= visitorsdata[i].visitor_name %></td>
+                    <td><%= visitorsdata[i].phone_number %></td>
+                    <td><%=visitorsdata[i].category %></td>
+                    <td><%= visitorsdata[i].host_name %></td>
+                    <td><%= visitorsdata[i].phone %></td>
+                    <td><%= visitorsdata[i].email %></td>
+                    <td><%= visitorsdata[i].purpose %></td>
+                    <td><%= visitorsdata[i].arrival_date %></td>
+                    <td><%= visitorsdata[i].arrival_time %></td>
+                    <td><% if (visitorsdata[i].checked_in) { %>
+						Checked In
+					<% } else { %>
+                        not checked in
+                        <% } %>
+                    </td>
+                    <td><% if (visitorsdata[i].destination_date) { %>
+                         <%= visitorsdata[i].destination_date %>
+                    <% } else { %>
+                        <a href="/update?visitorId=<%= visitorsdata[i].gate_id %>">Update Checkout date</a>
+                    <% } %></td>
+                    <td><% if (visitorsdata[i].destination_time) { %>
+                        <%= visitorsdata[i].destination_time %>
+                   <% } else { %>
+                       <a href="/update?visitorId=<%= visitorsdata[i].gate_id %>">Update Checkout Time</a>
+                   <% } %></td>
+
+                   
+                 </tr>
+              <%  }  %>
+                    
+
+        
+        
+
+    </table>
+   
+       
+        
+        
+    
+</body>
+</html>

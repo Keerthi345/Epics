@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FAQ Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+  .faq-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+</style>
+<body>
+  <h1>FAQs</h1>
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question">How do I check in as a visitor?</button>
+      <div class="faq-answer">To check in as a visitor, you can use the self-service kiosk at the entrance of the building. Simply follow the on-screen instructions, enter your registration details, and print out your visitor badge. Our staff will be available to assist you if you need any help.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Question 2</button>
+      <div class="faq-answer">Answer 2</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Question 3</button>
+      <div class="faq-answer">Answer 3</div>
+    </div>
+  </div>
+  <script >
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+  question.addEventListener('click', () => {
+    const answer = question.nextElementSibling;
+    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+  });
+});
+
+  </script>
+</body>
+</html>
+

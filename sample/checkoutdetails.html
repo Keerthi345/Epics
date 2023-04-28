@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title >checkoutcetails</title>
+     <style>
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Poppins',sans-serif;
+
+      }
+      body{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        min-height:100vh;
+        background:#23242a;
+      }
+        
+      .checkout{
+        color:white;
+        font-size: 22px;
+        line-height: 40px;
+        border:#23242a solid 2px;
+      }
+      .submit{
+        text-align: center;
+        padding:10px 10px;
+        border-radius: 5px;
+        font-size:18px;
+
+      }
+      
+     </style>
+    </head>
+    <body>
+        <div class="checkout">
+        <form action="/checkoutdetails" method="post" class="form">
+            <div class="inputbox">
+                <label>Enter date of departure</label><br>
+          <input type="date" name="destination_date"id="destination_date" required><br>
+          <i></i>
+          </div>
+          <div class="inputbox">
+            <label>Enter Your Gate Pass ID</label>
+            <input type="number" name="gate_id" required>
+          </div>
+          <div class="inputbox">
+            <label>Enter leaving time</label><br>
+      <input type="time" name="destination_time"id="destination_time" required><br>
+      <i></i>
+      </div>
+      <button type="submit" class="submit">submit</button>
+        </form>
+    </div>
+    </body>
+</html>

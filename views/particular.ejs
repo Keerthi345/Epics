@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Tracking</title>
+    <style>
+        /* *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Poppins',sans-serif;
+
+      }
+      body{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+  
+    height:1000px;
+      
+      } */
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styles */
+        .total {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height:500px;
+        }
+
+        /* Image styles */
+        .image img {
+            max-width: 50%;
+            height: auto;
+            margin-left:200px;
+        }
+
+        /* Details styles */
+        .details {
+            margin:auto;
+            margin-left:350px;
+        }
+
+        .details ul {
+            list-style: none;
+            padding: 0;
+            margin-top:5 0;
+        }
+
+        .details ul li {
+            margin-bottom: 10px;
+        }  
+
+        .details ul li span {
+            font-weight: bold;
+        }
+
+    </style>
+    </head>
+<body>
+  <div class="total">
+   <div class="image">
+  <img src="<%= dataURI %>" alt="Image">
+</div>
+    
+        <div class="details">
+        <% for(var i=0;i<visitorsdata.length;i++) { %>
+        
+          <ul>
+            <li><span>Gate ID:</span> <%=visitorsdata[i].gate_id %></li>
+            <li><span>Visitor Name:</span> <%= visitorsdata[i].visitor_name %></li>
+            <li><span>Phone Number:</span> <%= visitorsdata[i].phone_number %></li>
+            <li><span>Category:</span> <%=visitorsdata[i].category %></li>
+            <li><span>Host Name:</span> <%= visitorsdata[i].host_name %></li>
+            <li><span>Phone:</span> <%= visitorsdata[i].phone %></li>
+            <li><span>Arrival Date:</span> <%= visitorsdata[i].arrival_date %></li>
+            <li><span>Arrival Time:</span> <%= visitorsdata[i].arrival_time %></li>
+        </ul>
+    <%  }  %>
+    </div>
+    </div>
+
+    
+</body>
+</html>

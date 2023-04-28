@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faq Javascript</title>
+    <link rel="stylesheet" href="/faqq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"> />
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">
+            Frequently Asked Questions
+        </h1>
+        <main class="accordion">
+            <div class="faq-img">
+                <img src="img/faq.svg" alt="" class="">
+                
+            </div>
+            <div class="content-accordin">
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Do you do a Front-end developer?
+                            
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                
+                            </span>
+                            </span class="down-icon">
+                                 <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus suscipit similique maxime cumque molestias expedita illum animi maiores tenetur error quis ipsa laboriosam asperiores vitae ab, omnis, itaque enim optio!</p>
+                    </div>
+                </div>
+                
+            
+             <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            What is the difference between
+                            Front-end and Back-end?
+                            
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                
+                            </span>
+                            </span class="down-icon">
+                                 <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus suscipit similique maxime cumque molestias expedita illum animi maiores tenetur error quis ipsa laboriosam asperiores vitae ab, omnis, itaque enim optio!</p>
+                    </div>
+                </div >
+
+                    
+            <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Which is better Front-end or Back-end?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                
+                            </span>
+                            </span class="down-icon">
+                                 <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus suscipit similique maxime cumque molestias expedita illum animi maiores tenetur error quis ipsa laboriosam asperiores vitae ab, omnis, itaque enim optio!</p>
+                    </div>
+             </div>
+                           
+           <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            What is Front-end?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                
+                            </span>
+                            </span class="down-icon">
+                                 <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus suscipit similique maxime cumque molestias expedita illum animi maiores tenetur error quis ipsa laboriosam asperiores vitae ab, omnis, itaque enim optio!</p>
+                    </div>
+                </div>
+                
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            What is Back-end?
+                            
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                
+                            </span>
+                            </span class="down-icon">
+                                 <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus suscipit similique maxime cumque molestias expedita illum animi maiores tenetur error quis ipsa laboriosam asperiores vitae ab, omnis, itaque enim optio!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+     </div>
+<script >
+
+    const questions = document.querySelectorAll('.question-answer');
+
+questions.forEach(function(question) {
+  const btn = question.querySelector('.question-btn');
+  btn.addEventListener("click", function() {
+    questons.forEach(function(item) {
+      if (item !== question) {
+        item.classList.remove("show-text");
+      } 
+        
+      var answer = this.parentNode.nextElementSibling;
+    answer.classList.toggle('.show-answer');  
+    // question.classList.toggle("show-text");
+
+    })
+  })
+
+});
+</script>
+</body>
+</html>
